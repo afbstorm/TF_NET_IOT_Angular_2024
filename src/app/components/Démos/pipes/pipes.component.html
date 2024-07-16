@@ -1,0 +1,34 @@
+<div>
+    <h3>{{subtitle}}</h3>
+
+    <div>
+        <h4 style="text-decoration: underline;">Pipe uppercase</h4>
+
+        <p>{{stringEnMajuscule | uppercase}}</p>
+
+
+        <h4 style="text-decoration: underline;">Pipe lowercase</h4>
+
+        <p>{{stringEnMinuscule | lowercase}}</p>
+
+        <h4 style="text-decoration: underline;">Pipe titlecase</h4>
+
+        <p>{{premierEnMajuscule | titlecase}}</p>
+
+        <h4 style="text-decoration: underline;">Pipe date</h4>
+
+        <h5>Différents formats de dates</h5>
+        <p>On est le : {{dateDuJour | date: 'long' | uppercase}}</p>
+        <p>On est également le : {{dateDuJour | date: 'medium'}}</p>
+        <p>On est aussi le : {{dateDuJour | date: 'short'}}</p>
+
+        <h4 style="text-decoration: underline;">Pipe currency</h4>
+
+        <p>{{argentArgent | currency: 'CHF'}}</p>
+
+        <h4 style="text-decoration: underline;">Pipe custom</h4>
+
+        <p>{{5 | numToString | titlecase}}</p>
+    </div>
+
+</div>

@@ -1,0 +1,31 @@
+<div>
+    <h3>{{subtitle}}</h3>
+
+    <h4>Binding One-Way</h4>
+
+    <!-- {{bindingOneWaySimple}} : Syntaxe de liaison de propriété du composant à la balise <p>
+        Cette liaison utilise une liaison de données unidirectionnelle ou binding one way -->
+    <p>
+        {{bindingOneWaySimple}}
+    </p>
+
+    <h4>Binding Two-Ways</h4>
+
+    <!-- [(ngModel)]="bindingTwoWaysSimple" : ngModel est utilisé pour la liaison de données bidirectionnelles ou binding two ways.
+     Cela signifie que toute modification de l'input mettra à jour la propriété bindingTwoWaysSimple -->
+    <input type="text" [(ngModel)]="bindingTwoWaysSimple" style="width: 15rem;">
+    <p>
+        {{bindingTwoWaysSimple}}
+    </p>
+
+    <h4>Binding d'événements</h4>
+    <div class="buttons">
+        <!-- (click)=eventBinding() : L'événement click (équivalent de onclick en html) est géré par la méthode eventBinding() -->
+        <button (click)="eventBinding()">Clique sur moi pour activer mon événement</button>
+    </div>
+
+    <h4>Binding d'attributs</h4>
+    <div class="buttons">
+        <button [disabled]="disabledAttribute" (click)="attributeBinding()">Clique sur moi pour me désactiver</button>
+    </div>
+</div>
