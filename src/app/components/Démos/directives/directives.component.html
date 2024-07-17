@@ -1,0 +1,75 @@
+<div>
+    <h4 style="text-decoration: underline;">
+        On affiche SI et uniquement SI la condition est respectée via la directive *ngIf
+    </h4>
+
+    <!-- <div *ngIf="showIfTrueNgIf; else elseBlock"> : indique que la div (ET SON CONTENU) ne sera affiché QUE si la valeur
+        de showIfTrueNgIf est true. Si elle est false, alors l'élément mentionné avec le else [instruction] 
+        (ici elseBlock - mais peut être nommé comme on l'entend) sera affiché à la place -->
+    <div *ngIf="showIfTrueNgIf; else elseBlock">
+        <p>
+            Je suis visible car la condition est respectée : {{showIfTrueNgIf}}
+        </p>
+        <button (click)="showAndHideInvisibleThings()">Clique pour le else</button>
+    </div>
+
+    <!-- <ng-template #elseBlock> : est utilisé lorsqu'on souhaite avoir quelque chose dans l'HTML mais qu'on ne veut pas
+        qu'il soit chargé par défaut. C'est un peu un genre de placeholder invisible pour contenu dynamique. 
+        Ici il est utilisé avec un *ngIf -->
+    <ng-template #elseBlock>
+        <p>
+            Je suis visible car la condition n'est pas respectée : {{showIfTrueNgIf}}
+        </p>
+        <button (click)="showAndHideInvisibleThings()">Clique pour le true</button>
+    </ng-template>
+
+    <h4 style="text-decoration: underline;">
+        On affiche SI et uniquement SI la condition est respectée via la directive IF
+    </h4>
+
+    @if (showIfTrueIf) {
+        <div>
+            <p>
+                Je suis visible car la condition est respectée : {{showIfTrueIf}}
+            </p>
+        </div>
+        <button (click)="showAndHideInvisibleThings2()">Cliques pour afficher le ELSE</button>
+    } @else {
+        <div>
+            <p>
+                Je suis visible car la condition n'est PAS respectée : {{showIfTrueIf}}
+            </p>
+        </div>
+        <button (click)="showAndHideInvisibleThings2()">Cliques pour afficher le TRUE</button>
+    }
+
+    <h4 style="text-decoration: underline;">
+        On affiche le contenu du tableau via une boucle *ngFor
+    </h4>
+
+    <ul>
+        <li *ngFor="let things of arrayOfThings; let i = index">
+            {{i}} : {{things}}
+        </li>
+    </ul>
+
+    <h4 style="text-decoration: underline;">
+        On affiche le contenu du tableau via une boucle FOR
+    </h4>
+
+    <ul>
+        @for (things of arrayOfThings2; track things ;let i = $index; ) {
+            <li>{{i}} : {{things}}</li>
+        } @empty {
+            <li>Ce tableau est vide, continue ton chemin.</li>
+        }
+    </ul>
+
+    <h4 style="text-decoration: underline;">
+        On modifie le background-color d'un élément via une directive custom appelée directement SUR l'élément
+    </h4>
+
+    <div>
+        <button changesBackground>Vive la chartreuse, c'est trooooooop beau.</button>
+    </div>
+</div>
