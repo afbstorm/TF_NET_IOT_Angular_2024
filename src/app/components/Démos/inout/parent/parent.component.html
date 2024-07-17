@@ -1,0 +1,15 @@
+<h3>COUCOU JE SUIS LE PARENT</h3>
+
+<div>
+    <input type="number" [(ngModel)]="number1">
+    +
+    <input type="number" [(ngModel)]="number2">
+</div>
+
+<app-enfant [num1]="number1" [num2]="number2" (calcul)="resultFetching($event)"></app-enfant>
+<p>= {{result}}</p>
+
+
+<app-enfant>
+    <p>Salut Raphael. Salut Guillaume. Salut Christian</p>
+</app-enfant>

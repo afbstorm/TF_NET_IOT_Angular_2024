@@ -1,8 +1,6 @@
-<nav>
+<!-- <nav>
     <ul>
         <li>
-            <!-- <a href=""></a> -->
-            <!-- En angular le href est remplacé par routerLink="" -->
              <a routerLink="/demos/bindings">Bindings</a>
         </li>
         <li>
@@ -17,5 +15,25 @@
         <li>
             <a routerLink="/exos/chrono">Chrono</a>
         </li>
+    </ul>
+</nav> -->
+
+<nav>
+    <ul>
+        @for (link of links; track link) {
+            <li dropMenu>
+                <a [routerLink]="link.url">{{link.title}}</a>
+
+                <ul>
+                    @for (child of link.children; track child) {
+                        <li>
+                            <a [routerLink]="child.url">{{child.title}}</a>
+                        </li>
+                    } @empty {
+                        {{null}}
+                    }
+                </ul>
+            </li>
+        }
     </ul>
 </nav>
