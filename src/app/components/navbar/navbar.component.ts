@@ -31,6 +31,10 @@ export class NavbarComponent {
         {
           title: 'Inout',
           url: '/demos/inout'
+        },
+        {
+          title: 'Services',
+          url: '/demos/service'
         }
       ]
     },
