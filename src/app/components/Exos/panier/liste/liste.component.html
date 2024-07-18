@@ -1,0 +1,54 @@
+<section>
+    <p-card>
+        <p-header>
+            Panier de course
+        </p-header>
+        <ul>
+            @for(item of listeArticle; track item) {
+                <li>
+                    <span>{{item.nom}}</span>
+                    <p>
+                        Prix unitaire: {{item.prix | currency: 'EUR'}}<br />
+                        Quantité: {{item.quantite ? item.quantite : 1}}<br />
+                        Prix total: {{item.quantite ? ((item.prix * item.quantite).toFixed(2) | currency: 'EUR') : item.prix | currency: 'EUR'}}<br />
+                        Date de mise dans le panier: {{item.date | date: 'short'}}<br />
+                    </p>
+                </li>
+            }
+        </ul>
+        <p-footer>
+            Prix total du panier : {{totalPanier.toFixed(2) | currency: 'EUR'}}
+        </p-footer>
+    </p-card>
+
+    <div>
+        <ul>
+            @for(article of listeArticle; track article) {
+                <p-card>
+                    <p-header>
+                        {{article.nom}}
+                    </p-header>
+                    <div>
+                        Prix: {{article.prix | currency: 'EUR'}}
+                    </div>
+                    <p-footer>
+                        <app-articles [article]="article" (ajout)="ajoutAuPanier($event)" (supprime)="suppressionDuPanier($event)"></app-articles>
+                    </p-footer>
+                </p-card>
+            }
+        </ul>
+    </div>
+
+    <div>
+        <form (ngSubmit)="onSubmit()">
+                <p>Article</p>
+                <input pInputText name="nom" [(ngModel)]="article.nom" />
+                <p>Prix</p>
+                <p-inputNumber name="prix" [(ngModel)]="article.prix" />
+                <p>Quantité</p>
+                <p-inputNumber name="quantite" [(ngModel)]="article.quantite" />
+
+                <p-button type="submit" label="Ajouter au panier" />
+        </form>
+    </div>
+</section>

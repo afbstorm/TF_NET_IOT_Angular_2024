@@ -41,6 +41,10 @@ export class NavbarComponent {
         {
           title: 'Chrono',
           url: '/exos/chrono'
+        },
+        {
+          title: 'Panier',
+          url: '/exos/panier'
         }
       ]
     }

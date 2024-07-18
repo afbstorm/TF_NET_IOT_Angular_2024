@@ -1,0 +1,7 @@
+fontColor {
+    --chartreuse: #7FFF00;
+}
+
+h2 {
+    color: var(--chartreuse);
+}
