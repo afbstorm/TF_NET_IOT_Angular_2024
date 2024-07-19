@@ -1,0 +1,9 @@
+<article>
+    <h3>
+        Créer une tâche :
+    </h3>
+
+    <input pInputText [(ngModel)]="newTask.title" placeholder="Titre de la tâche"/>
+    <input pInputText [(ngModel)]="newTask.description" placeholder="Description de la tâche"/>
+    <p-button label="Enregistrer la tâche" (onClick)="addTask()"/>
+</article>

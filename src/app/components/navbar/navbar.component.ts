@@ -49,6 +49,10 @@ export class NavbarComponent {
         {
           title: 'Panier',
           url: '/exos/panier'
+        },
+        {
+          title: 'Todo',
+          url: '/exos/task'
         }
       ]
     }

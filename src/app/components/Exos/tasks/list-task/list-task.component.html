@@ -1,0 +1,28 @@
+<article>
+    <h3>Liste des tâches</h3>
+
+    @for (task of tasks; track task) {
+        @if (!task.isCompleted) {
+            <p-card [style]="{backgroundColor: '#d56060'}">
+                <p-header>
+                    {{task.title}}
+                </p-header>
+                <p>{{task.description}}</p>
+                <p-footer>
+                    <app-update-task [id]="task.id" (complete)="getTasks()"></app-update-task>
+                    <app-delete-task [id]="task.id" (delete)="getTasks()"></app-delete-task>
+                </p-footer>
+            </p-card>
+        } @else {
+            <p-card [style]="{backgroundColor: 'gold'}">
+                <p-header>
+                    {{task.title}}
+                </p-header>
+                <p>{{task.description}}</p>
+                <p-footer>
+                    <app-delete-task [id]="task.id" (delete)="getTasks()"></app-delete-task>
+                </p-footer>
+            </p-card>
+        }
+    }
+</article>

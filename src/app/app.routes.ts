@@ -6,6 +6,7 @@ import { DirectivesComponent } from './components/Démos/directives/directives.c
 import { ParentComponent } from './components/Démos/inout/parent/parent.component';
 import { PanierComponent } from './components/Exos/panier/panier.component';
 import { ServicesComponent } from './components/Démos/services/services.component';
+import { TasksComponent } from './components/Exos/tasks/tasks.component';
 
 export const routes: Routes = [
     {path: 'demos', children: [
@@ -17,7 +18,8 @@ export const routes: Routes = [
     ]},
     {path: 'exos', children: [
         {path: 'chrono', component: ChronoComponent},
-        {path: 'panier', component: PanierComponent}
+        {path: 'panier', component: PanierComponent},
+        {path: 'task', component: TasksComponent}
     ]}
 ];
 
