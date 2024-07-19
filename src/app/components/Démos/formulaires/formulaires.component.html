@@ -1,0 +1,57 @@
+<!-- <div>
+    <h3>On récupère la valeur de l'input via un formControl et je le LOG dans la console</h3>
+
+    <form (submit)="onControlSubmit($event)">
+        <input pInputText [formControl]="control">
+        <p-button label="Envoi de la valeur du contrôle seul" type="submit" />
+    </form>
+</div> -->
+
+<!-- <div>
+    <h3>On récupère la valeur de l'input via un formGroup et je le LOG dans la console</h3>
+
+    <form (submit)="onGroupSubmit($event)" [formGroup]="group">
+        <input pInputText formControlName="prenom">
+        <p-inputNumber formControlName="age" />
+        <p-button label="Envoi de la valeur du formGroup" type="submit" />
+    </form>
+</div> -->
+
+<!-- <div>
+    <h3>On récupère la valeur de l'input via un formArray et je le LOG dans la console</h3>
+
+    <form (submit)="onArraySubmit($event)" [formGroup]="array">
+        <p-button (onClick)="addControl()" label="Ajouter un prénom" />
+        <div formArrayName="arrayDansForm">
+            @for (control of getArrayForm().controls; track control; let i = $index) {
+                <p>{{i}}</p>
+                <input pInputText formControlName="{{i}}">
+            }
+            <p-button label="Envoi de la valeur du formArray" type="submit" />
+        </div>
+    </form>
+</div> -->
+
+
+<div>
+    <h3>On récupère la valeur de l'input via un formGroup et je valide ses inputs et affiches les erreurs</h3>
+
+    <form (submit)="onGroupSubmit($event)" [formGroup]="group">
+        <input pInputText formControlName="prenom">
+        @if (!group.get('prenom')?.valid && group.get('prenom')?.touched) {
+            <p>Ce champ est obligatoire</p>
+        }
+
+        <p-inputNumber formControlName="age" />
+        @if (!group.get('age')?.valid && group.get('age')?.touched) {
+            <p>Ce champ est obligatoire</p>
+        }
+        
+        <input pInputText formControlName="tel" />
+        @if (group.get('tel')?.errors) {
+            <p>{{group.get('tel')?.errors?.['tel']}}</p>
+        }
+        <p-button label="Envoi de la valeur du formGroup" type="submit" />
+
+    </form>
+</div>

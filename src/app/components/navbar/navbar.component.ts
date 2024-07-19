@@ -35,6 +35,10 @@ export class NavbarComponent {
         {
           title: 'Services',
           url: '/demos/service'
+        },
+        {
+          title: 'Formulaires',
+          url: '/demos/formulaire'
         }
       ]
     },
