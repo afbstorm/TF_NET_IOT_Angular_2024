@@ -16,7 +16,6 @@ export class FormulairesComponent {
 
   control: FormControl;
   group: FormGroup;
-  array: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) {
 
@@ -27,18 +26,28 @@ export class FormulairesComponent {
     this.group = this._formBuilder.group({
       prenom: [null, [Validators.required]],
       age: [null, [Validators.required, Validators.min(18)]],
-      tel: ['', [telValidator(), Validators.required]]
-    })
-
-    this.array = this._formBuilder.group({
-      arrayDansForm: this._formBuilder.array([
-        this._formBuilder.control(null, [Validators.required])
+      tel: ['', [telValidator, Validators.required]],
+      competences: this._formBuilder.array([
+        this._formBuilder.control(null, [Validators.required]),
+        this._formBuilder.control(null, [Validators.required]),
+        this._formBuilder.control(null, [Validators.required]),
         // this._formBuilder.group({
         //   titre: [null, [Validators.required]],
         //   description: [null, [Validators.required]]
         // })
-      ]) 
-    })
+      ], { validators: [(array) => {
+        if(array.value.length > 3) {
+          return { arrayMax: 'max 3 compétences' }
+        }
+        return null;
+      }] }) 
+    }, { validators: [(group) => {
+      const valueToControl = group.value;
+      if(valueToControl.prenom?.length > valueToControl?.age) {
+        return { test: 'La longueur de votre prenom doit etre plus petite que votre age' }
+      }
+      return null
+    }] })
 
   }
 
@@ -68,23 +77,39 @@ export class FormulairesComponent {
   // On cible le formGroup et on utilise la fonction .get() en indiquant le nom du formArray
   // Sans oublier de spécifier l'aliasing " as FormArray "
   getArrayForm(): FormArray {
-    return this.array.get('arrayDansForm') as FormArray;
+    return this.group.get('competences') as FormArray;
   }
 
   addControl() {
     this.getArrayForm().push(this._formBuilder.control(null, [Validators.required]))
+    
   }
 
   onArraySubmit(e: Event) {
     e.preventDefault();
-    const values = this.array.controls['arrayDansForm'].value;
-    if (this.array.valid) {
-      console.log(values);
-    } else {
-      console.log('Pas valide');
-      
-    }
+
     
   }
 
 }
+
+
+// control
+// 42
+// 'khun'
+// true
+
+// group
+// {
+//  nom: 'Khun',
+//  prenom: 'Ly',
+//  age: 42
+//}
+
+// array
+// ['c#', 'python', 'SQL']
+
+// [
+//  { rue: 'Chaussee de Dinant', numero: 634, type: 'facturation' }, 
+// { rue: 'Chaussee au moine', numero: 42, type: 'livraison'}
+//]
