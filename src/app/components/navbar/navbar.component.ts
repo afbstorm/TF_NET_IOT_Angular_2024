@@ -57,6 +57,10 @@ export class NavbarComponent {
         {
           title: 'Todo',
           url: '/exos/task'
+        },
+        {
+          title: 'Ajouter un fan',
+          url: '/exos/fan/create'
         }
       ]
     }

@@ -5,3 +5,47 @@ fontColor {
 h2 {
     color: var(--chartreuse);
 }
+
+nav {
+    height: 70px;
+    box-shadow: 0 5px 20px 20px #ccc;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav > ul > li {
+    position: relative;
+}
+
+nav > ul > li > ul {
+    position: absolute;
+    border: 1px solid #333;
+    background-color: white;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    left: 0;
+    top: 20px;
+    min-width: 200px;
+}
+
+nav > ul > li > ul > li {
+    height: 25px;
+    border-bottom: 1px solid #333;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+

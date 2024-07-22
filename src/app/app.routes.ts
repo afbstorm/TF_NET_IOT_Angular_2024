@@ -8,6 +8,7 @@ import { PanierComponent } from './components/Exos/panier/panier.component';
 import { ServicesComponent } from './components/Démos/services/services.component';
 import { TasksComponent } from './components/Exos/tasks/tasks.component';
 import { FormulairesComponent } from './components/Démos/formulaires/formulaires.component';
+import { FanFormComponent } from './components/Exos/fan/fan-form/fan-form.component';
 
 export const routes: Routes = [
     {path: 'demos', children: [
@@ -21,7 +22,8 @@ export const routes: Routes = [
     {path: 'exos', children: [
         {path: 'chrono', component: ChronoComponent},
         {path: 'panier', component: PanierComponent},
-        {path: 'task', component: TasksComponent}
+        {path: 'task', component: TasksComponent},
+        {path: 'fan/create', component: FanFormComponent}
     ]}
 ];
 

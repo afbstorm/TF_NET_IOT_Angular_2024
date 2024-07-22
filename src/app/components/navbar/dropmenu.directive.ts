@@ -10,22 +10,22 @@ export class DropmenuDirective implements AfterViewInit {
 
   ngAfterViewInit(): void {
     // Modification de la visibilité des sous-menus
-    this.toggleVisibility('hidden')
+    this.toggleVisibility('none')
   }
 
   @HostListener('mouseenter')
   onMouseEnter() {
-    this.toggleVisibility('visible')
+    this.toggleVisibility('unset')
   }
 
   @HostListener('mouseleave')
   onMouseLeave() {
-    this.toggleVisibility('hidden')
+    this.toggleVisibility('none')
   }
 
   private toggleVisibility(display: string) {
     const submenu = this.elementRef.nativeElement.querySelector('ul');
-    this.renderer.setStyle(submenu, 'visibility', display)
+    this.renderer.setStyle(submenu, 'display', display)
   }
 
 }
