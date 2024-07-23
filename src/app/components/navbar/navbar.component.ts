@@ -39,6 +39,10 @@ export class NavbarComponent {
         {
           title: 'Formulaires',
           url: '/demos/formulaire'
+        },
+        {
+          title: 'Http Demo 1',
+          url: '/demos/http'
         }
       ]
     },

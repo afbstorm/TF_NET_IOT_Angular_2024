@@ -1,0 +1,10 @@
+<section>
+    <ul>
+        @for (todo of todos; track todo) {
+            <li>
+                <h3>{{todo.title}}</h3>
+                <p>{{todo.completed}}</p>
+            </li>
+        }
+    </ul>
+</section>

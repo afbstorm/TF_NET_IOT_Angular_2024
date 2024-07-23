@@ -8,6 +8,7 @@ import { PanierComponent } from './components/Exos/panier/panier.component';
 import { ServicesComponent } from './components/Démos/services/services.component';
 import { TasksComponent } from './components/Exos/tasks/tasks.component';
 import { FormulairesComponent } from './components/Démos/formulaires/formulaires.component';
+import { HttpDemoComponent } from './components/Démos/http-demo/http-demo.component';
 
 export const routes: Routes = [
     {path: 'demos', children: [
@@ -16,7 +17,8 @@ export const routes: Routes = [
         {path: 'directives', component: DirectivesComponent},
         {path: 'inout', component: ParentComponent},
         {path: 'service', component: ServicesComponent},
-        {path: 'formulaire', component: FormulairesComponent}
+        {path: 'formulaire', component: FormulairesComponent},
+        {path: 'http', component: HttpDemoComponent}
     ]},
     {path: 'exos', children: [
         {path: 'chrono', component: ChronoComponent},
