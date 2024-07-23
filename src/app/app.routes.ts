@@ -11,6 +11,8 @@ import { FormulairesComponent } from './components/Démos/formulaires/formulaire
 import { HttpDemoComponent } from './components/Démos/http-demo/http-demo.component';
 import { FanFormComponent } from './components/Exos/fan/fan-form/fan-form.component';
 import { MeteoComponent } from './components/Démos/meteo/meteo.component';
+import { PokedexComponent } from './components/Démos/pokedex/pokedex.component';
+import { DetailsComponent } from './components/Démos/pokedex/details/details.component';
 
 export const routes: Routes = [
     {path: 'demos', children: [
@@ -21,7 +23,11 @@ export const routes: Routes = [
         {path: 'service', component: ServicesComponent},
         {path: 'formulaire', component: FormulairesComponent},
         {path: 'http', component: HttpDemoComponent},
-        {path: 'meteo', component: MeteoComponent}
+        {path: 'meteo', component: MeteoComponent},
+        {path: 'pokedex', component: PokedexComponent},
+        {path: 'details', children: [
+            {path: ':id', component: DetailsComponent}
+        ]}
     ]},
     {path: 'exos', children: [
         {path: 'chrono', component: ChronoComponent},

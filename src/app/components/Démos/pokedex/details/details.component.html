@@ -1,0 +1,25 @@
+<p-card>
+    <ng-template pTemplate="header">
+        Détails de {{pokemon.name}}
+    </ng-template>
+    <ng-template pTemplate="content">
+        <div>
+            <img [src]="pokemon.sprites.front_default" alt="Image de {{pokemon.name}}">
+        </div>
+
+        <p-tabView>
+            <p-tabPanel header="Stats">
+                <ul>
+                    @for (stat of pokemon.stats; track stat) {
+                        <li>
+                            {{stat.stat.name}} : {{stat.base_stat}}
+                        </li>
+                    }
+                </ul>
+            </p-tabPanel>
+            <p-tabPanel header="Base experience">
+                <p>{{pokemon.base_experience}}</p>
+            </p-tabPanel>
+        </p-tabView>
+    </ng-template>
+</p-card>

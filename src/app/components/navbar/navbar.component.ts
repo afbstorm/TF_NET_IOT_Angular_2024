@@ -47,6 +47,10 @@ export class NavbarComponent {
         {
           title: 'Meteo',
           url: '/demos/meteo'
+        },
+        {
+          title: 'Pokedex',
+          url: '/demos/pokedex'
         }
       ]
     },

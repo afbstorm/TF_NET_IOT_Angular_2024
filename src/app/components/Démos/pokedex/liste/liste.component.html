@@ -1,0 +1,21 @@
+<!-- 
+    p-table de primeng, prend un tableau en paramètre [value] et itère automatiquement dedans
+    ce qui veut dire qu'il n'y a pas besoin de @for ou *ngFor
+-->
+<p-table [value]="pokemons" [tableStyle]="{'min-width': '40rem'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Image</th>
+        </tr>
+    </ng-template>
+    <!-- @for (let pokemon of pokemons; track pokemon) {} -->
+    <ng-template pTemplate="body" let-pokemon>
+        <tr [routerLink]="['/demos/details', pokemon.id]">
+            <td>{{pokemon.name}}</td>
+            <td>
+                <img [src]="pokemon.image" alt="Image of {{pokemon.name}}">
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
