@@ -20,7 +20,7 @@ export const routes: Routes = [
         {path: 'inout', component: ParentComponent},
         {path: 'service', component: ServicesComponent},
         {path: 'formulaire', component: FormulairesComponent},
-        {path: 'http', component: HttpDemoComponent}
+        {path: 'http', component: HttpDemoComponent},
         {path: 'meteo', component: MeteoComponent}
     ]},
     {path: 'exos', children: [

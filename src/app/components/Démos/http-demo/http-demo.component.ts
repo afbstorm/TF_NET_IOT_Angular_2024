@@ -1,11 +1,12 @@
 import { Component, OnDestroy } from '@angular/core';
 import { DataService } from './data.service';
 import { Subscription } from 'rxjs';
+import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-http-demo',
   standalone: true,
-  imports: [],
+  imports: [TableModule],
   templateUrl: './http-demo.component.html',
   styleUrl: './http-demo.component.css'
 })

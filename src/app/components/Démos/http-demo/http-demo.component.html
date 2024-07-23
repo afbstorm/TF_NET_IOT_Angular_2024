@@ -1,4 +1,4 @@
-<section>
+<!-- <section>
     <ul>
         @for (todo of todos; track todo) {
             <li>
@@ -7,4 +7,23 @@
             </li>
         }
     </ul>
+</section> -->
+
+<section>
+ @if (todos) {
+    <p-table [value]="todos" [tableStyle]="{'min-width': '30rem'}">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Titre</th>
+                <th>État</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-todo>
+            <tr>
+                <td>{{todo.title}}</td>
+                <td [style.background-color]="todo.completed ? 'lightgreen' : 'red'"></td>
+            </tr>
+        </ng-template>
+    </p-table>
+ }
 </section>
