@@ -39,6 +39,10 @@ export class NavbarComponent {
         {
           title: 'Formulaires',
           url: '/demos/formulaire'
+        },
+        {
+          title: 'Meteo',
+          url: '/demos/meteo'
         }
       ]
     },
@@ -57,6 +61,10 @@ export class NavbarComponent {
         {
           title: 'Todo',
           url: '/exos/task'
+        },
+        {
+          title: 'Ajouter un fan',
+          url: '/exos/fan/create'
         }
       ]
     }

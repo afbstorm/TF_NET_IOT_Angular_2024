@@ -37,6 +37,9 @@
     <h3>On récupère la valeur de l'input via un formGroup et je valide ses inputs et affiches les erreurs</h3>
 
     <form (submit)="onGroupSubmit($event)" [formGroup]="group">
+        @if(group.getError('test')) {
+            <p>{{group.getError('test')}}</p>
+        }
         <input pInputText formControlName="prenom">
         @if (!group.get('prenom')?.valid && group.get('prenom')?.touched) {
             <p>Ce champ est obligatoire</p>
@@ -51,6 +54,18 @@
         @if (group.get('tel')?.errors) {
             <p>{{group.get('tel')?.errors?.['tel']}}</p>
         }
+
+        <div formArrayName="competences">
+            @if(getArrayForm().invalid) {
+                <p>{{getArrayForm().getError('arrayMax')}}</p>
+            }
+            @for (item of getArrayForm().controls; track $index; let i = $index) {
+                <input pInputText [formControlName]="i">
+            }
+            <button (click)="addControl()">+</button>
+
+        </div>
+
         <p-button label="Envoi de la valeur du formGroup" type="submit" />
 
     </form>
