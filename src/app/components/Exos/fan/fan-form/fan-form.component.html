@@ -1,0 +1,47 @@
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <p-fieldset legend="Infos">
+        <div class="input-group">
+            <p-floatLabel>
+                <input pInputText formControlName="nom">
+                <label>Nom</label>
+            </p-floatLabel>
+            <app-form-error [control]="form.controls['nom']"></app-form-error>
+        </div>
+        <div class="input-group">
+            <p-floatLabel>
+                <input pInputText formControlName="prenom">
+                <label>Prénom</label>
+           </p-floatLabel>
+           <app-form-error [control]="form.controls['prenom']"></app-form-error>
+        </div>
+        <div class="input-group">
+            <p-floatLabel>
+                <p-calendar 
+                    dateFormat="dd/mm/yy"
+                    formControlName="dateDeNaissance"></p-calendar>
+                <label>Date de naissance</label>
+           </p-floatLabel>
+           <app-form-error [control]="form.controls['dateDeNaissance']"></app-form-error>
+        </div>
+    </p-fieldset>
+    <p-fieldset legend="Series" formArrayName="series">
+        <app-form-error [control]="getSeries()"></app-form-error>
+        @for (item of getSeries().controls; track $index; let i = $index) {
+            <div class="input-group" [formGroupName]="i">
+                <p-floatLabel>
+                    <input pInputText formControlName="nomSerie">
+                    <label>Nom de la serie {{ i + 1 }}</label>
+                </p-floatLabel>
+                <app-form-error [control]="getControl(i)"></app-form-error>
+                <input type="checkbox" formControlName="favori">
+            </div>
+        }
+        <div>
+            <p-button icon="pi pi-plus" (onClick)="addSerie()"></p-button>
+        </div>
+    </p-fieldset>
+    <div>
+        <p-button [disabled]="form.invalid" type="submit" severity="success" icon="pi pi-send" label="Envoyer" iconPos="right"></p-button>
+    </div>
+</form>

@@ -9,6 +9,8 @@ import { ServicesComponent } from './components/Démos/services/services.compone
 import { TasksComponent } from './components/Exos/tasks/tasks.component';
 import { FormulairesComponent } from './components/Démos/formulaires/formulaires.component';
 import { HttpDemoComponent } from './components/Démos/http-demo/http-demo.component';
+import { FanFormComponent } from './components/Exos/fan/fan-form/fan-form.component';
+import { MeteoComponent } from './components/Démos/meteo/meteo.component';
 
 export const routes: Routes = [
     {path: 'demos', children: [
@@ -19,11 +21,13 @@ export const routes: Routes = [
         {path: 'service', component: ServicesComponent},
         {path: 'formulaire', component: FormulairesComponent},
         {path: 'http', component: HttpDemoComponent}
+        {path: 'meteo', component: MeteoComponent}
     ]},
     {path: 'exos', children: [
         {path: 'chrono', component: ChronoComponent},
         {path: 'panier', component: PanierComponent},
-        {path: 'task', component: TasksComponent}
+        {path: 'task', component: TasksComponent},
+        {path: 'fan/create', component: FanFormComponent}
     ]}
 ];
 

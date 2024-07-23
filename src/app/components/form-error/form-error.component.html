@@ -1,0 +1,20 @@
+@if(control && (control.dirty || control.touched) && control.invalid) {   
+    @if(control.getError('required')) {
+        <small>Ce champ est requis</small>
+    }
+    @if(control.getError('maxlength')) {
+        <small>Ce champ est trop long</small>
+    }
+    @if(control.getError('minlength')) {
+        <small>Ce champ est trop court</small>
+    }
+    @if(control.getError('minAge')) {
+        <small>{{control.getError('minAge')}}</small>
+    }
+    @if(control.getError('arrayMin')) {
+        <small>{{control.getError('arrayMin')}}</small>
+    }
+    
+
+
+}

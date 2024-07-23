@@ -42,7 +42,11 @@ export class NavbarComponent {
         },
         {
           title: 'Http Demo 1',
-          url: '/demos/http'
+          url: '/demos/http',
+        },
+        {
+          title: 'Meteo',
+          url: '/demos/meteo'
         }
       ]
     },
@@ -61,6 +65,10 @@ export class NavbarComponent {
         {
           title: 'Todo',
           url: '/exos/task'
+        },
+        {
+          title: 'Ajouter un fan',
+          url: '/exos/fan/create'
         }
       ]
     }
